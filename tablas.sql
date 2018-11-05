@@ -4,7 +4,7 @@ CREATE TABLE carrera(
 
 	
 CREATE TABLE usuario(
-	id SERIAL PRIMARY KEY, nombre VARCHAR(100), apellido VARCHAR(100),username VARCHAR(30), contrasenia VARCHAR(100),fecha_nacimiento DATE, email VARCHAR(50), id_carrera INT,
+	id SERIAL PRIMARY KEY, nombre VARCHAR(100), apellido VARCHAR(100),username VARCHAR(30), contrasenia VARCHAR(100),fecha_nacimiento DATE, email VARCHAR(100), id_carrera INT,
 	CONSTRAINT id_carrera FOREIGN KEY (id_carrera) REFERENCES carrera(id));
 		
 	
@@ -18,7 +18,7 @@ CREATE TABLE grupo_usuario(
 	PRIMARY KEY (id_grupo, id_user)	);
 																	  
 	CREATE TABLE publicacion(
-	id SERIAL PRIMARY KEY, id_user int REFERENCES  usuario(id), id_grupo int REFERENCES grupo(id), titulo VARCHAR(50), contenido VARCHAR(50), fecha_publicacion TIMESTAMP);
+	id SERIAL PRIMARY KEY, id_user int REFERENCES  usuario(id), id_grupo int REFERENCES grupo(id), titulo VARCHAR(100), contenido VARCHAR(100), fecha_publicacion TIMESTAMP);
 	
 
 --drop table comentario
@@ -31,7 +31,7 @@ CREATE TABLE like_publicacion(
 	--id_carrera
 
 CREATE TABLE comentario(
-	id SERIAL PRIMARY KEY , id_public INT REFERENCES publicacion(id), id_user INT, contenido VARCHAR(50), fecha_comentario TIMESTAMP);
+	id SERIAL PRIMARY KEY , id_public INT REFERENCES publicacion(id), id_user INT, contenido VARCHAR(100), fecha_comentario TIMESTAMP);
 	--PRIMARY KEY(id, id_public));
 
 --select * from comentario
