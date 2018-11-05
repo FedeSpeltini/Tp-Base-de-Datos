@@ -8,7 +8,7 @@ GROUP BY username, publicacion.id, comentario.id_user
 having (count(like_publicacion.positivo = true) > 9) and (count(like_comentario.positivo = false) = 0)
 
 
-
+--HOLI
 
 
 select username from usuario 
