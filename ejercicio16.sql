@@ -1,0 +1,1 @@
+select (nombre || ' ' || apellido) as nyap, EXTRACT(year FROM  age(fecha_nacimiento)) as edad from usuario
