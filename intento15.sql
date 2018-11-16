@@ -21,5 +21,7 @@ INNER JOIN carrera ON carrera_usuario.id_carrera = carrera.id
 group by vInactivo.id;
 																   
 																   
-select string_agg(Name, ',') as Names
-from T
+select vInactivo.id, vInactivo.nombre, apellido, username, array_agg(carrera.nombre), email from vInactivo
+INNER JOIN carrera_usuario ON vInactivo.id = carrera_usuario.id_usuario
+INNER JOIN carrera ON carrera_usuario.id_carrera = carrera.id
+  group by vInactivo.id, vInactivo.nombre,  apellido, username, email;
